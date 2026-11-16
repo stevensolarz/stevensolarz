@@ -1,17 +1,32 @@
 # Steven Solarz
 
-A one-page landing site: a big animated name and a "Get Tickets" button.
+A one-page landing site built with React and Vite: a big animated name and a "Get Tickets" button.
 
 ## Change the ticket link
 
-Open `index.html`, find the line marked `🎟️ CHANGE YOUR TICKET LINK HERE`, and replace `href="#"` with your ticketing URL:
+Open `src/config.js` and set `TICKETS_URL` to your ticketing page:
 
-```html
-<a class="cta" id="tickets" href="https://your-ticket-page.com" target="_blank" rel="noopener">
+```js
+export const TICKETS_URL = "https://your-ticket-page.com";
 ```
 
-The button text ("Get Tickets") is on the lines just below it. The scrolling tape text is near the bottom of the file, in the `fill(...)` calls.
+The same file also holds the button label, the name, the scrolling tape text and the sticker text.
 
-## Preview / host
+## Run it
 
-Open `index.html` in a browser. It's a single static file with no build step, so it works on GitHub Pages, Netlify or Vercel as is.
+```bash
+npm install
+npm run dev      # local dev server with hot reload
+npm run build    # production build into dist/
+npm run preview  # serve the built site locally
+```
+
+## Host it
+
+Run `npm run build` and upload the `dist/` folder to any static host. On Netlify or Vercel, use the build command `npm run build` and the output folder `dist`.
+
+## Where things live
+
+- `src/config.js`: the link and all the text
+- `src/components/`: Name (animated letters), TicketButton, Sticker, Tapes, Background
+- `src/styles.css`: all styling and animation
